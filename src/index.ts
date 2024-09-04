@@ -4,6 +4,7 @@ import About from './pages/About';
 import Button from './pages/Button';
 import Card from './pages/Card';
 import Test from './pages/Test';
+import Htmx1 from './pages/Htmx1';
 //
 import testRouter from './routes/test'; 
 //
@@ -18,6 +19,9 @@ const errorObj = {ret: "NG", messase: "Error"};
 app.use('/api/test', testRouter);
 
 //MPA
+app.get('/htmx1', (req: any, res: any) => {
+  try {res.send(Htmx1({}));} catch (error) { res.sendStatus(500);}
+});
 app.get('/test', (req: any, res: any) => {
   try {res.send(Test({}));} catch (error) { res.sendStatus(500);}
 });
